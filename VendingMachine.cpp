@@ -72,5 +72,19 @@ void VendingMachine::updateDisplay()
 		}
 		display += to_string(cents); 
 	}
+}
+
+void VendingMachine::buyCola()
+{
+
+}
+
+void VendingMachine::buyChips()
+{
+	
+}
+
+void VendingMachine::buyCandy()
+{
 	
 }

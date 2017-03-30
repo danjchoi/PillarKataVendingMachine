@@ -7,6 +7,9 @@ public:
 	std::string printDisplay();
 	void depositCoin(char coin);
 	std::string checkCoinReturn();
+	void buyCola();
+	void buyChips();
+	void buyCandy();
 private:
 	void updateDisplay();
 	int cents;
