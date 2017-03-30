@@ -2,14 +2,11 @@
 
 using namespace std;
 
-VendingMachine::VendingMachine()
-{
-
-}
+VendingMachine::VendingMachine(): cents(0), dollars(0) {}
 
 string VendingMachine::printDisplay()
 {
-	return "";
+	return "INSERT COIN";
 }
 
 void VendingMachine::depositCoin(char coin)
