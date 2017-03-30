@@ -56,5 +56,28 @@ int main()
 	actualDisplay4 = machine4.checkCoinReturn();
 	compareAssert(expectedDisplay4, actualDisplay4);
 
+	cout << "Adding a dime to a machine with money already inserted" << endl;
+	expectedDisplay1 = "$0.15";
+	machine1.depositCoin(dime);
+	actualDisplay1 = machine1.printDisplay();
+	compareAssert(expectedDisplay1, actualDisplay1);
+
+	cout << "Adding a dime to a machine with money already inserted" << endl;
+	expectedDisplay1 = "$0.40";
+	machine1.depositCoin(quarter);
+	actualDisplay1 = machine1.printDisplay();
+	compareAssert(expectedDisplay1, actualDisplay1);
+
+	cout << "Adding two pennies to a machine with money already inserted" << endl;
+	machine1.depositCoin(penny);
+	machine1.depositCoin(penny);
+	actualDisplay1 = machine1.printDisplay();
+	compareAssert(expectedDisplay1, actualDisplay1);
+
+	cout << "Checking the coin return of the machine" << endl;
+	expectedDisplay1 = "$0.02";
+	actualDisplay1 = machine1.checkCoinReturn();
+	compareAssert(expectedDisplay1, actualDisplay1);
+
 	return 0;	
 }
