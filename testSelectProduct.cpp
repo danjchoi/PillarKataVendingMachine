@@ -190,9 +190,9 @@ void testBuyingCandy()
 		machine1.depositCoin(quarter);
 	}
 
-	cout << "Test2: Not enough money in machine. Trying to purchase cola" << endl;
+	cout << "Test2: Not enough money in machine. Trying to purchase candy" << endl;
 	expectedDisplay1 = "PRICE $0.65";
-	machine1.buyCola();
+	machine1.buyCandy();
 	actualDisplay1 = machine1.printDisplay();	
 	compareAssert(expectedDisplay1, actualDisplay1);
 
@@ -205,9 +205,9 @@ void testBuyingCandy()
 	machine1.depositCoin(dime);
 	machine1.depositCoin(nickel);
 
-	cout << "Test3: Just enough money in machine. Trying to purchase cola" << endl;
+	cout << "Test3: Just enough money in machine. Trying to purchase candy" << endl;
 	expectedDisplay1 = "THANK YOU";
-	machine1.buyCola();
+	machine1.buyCandy();
 	actualDisplay1 = machine1.printDisplay();	
 	compareAssert(expectedDisplay1, actualDisplay1);
 
@@ -222,9 +222,9 @@ void testBuyingCandy()
 		machine1.depositCoin(quarter);
 	}
 
-	cout << "Test4: More than enough money in machine. Trying to purchase cola" << endl;
+	cout << "Test4: More than enough money in machine. Trying to purchase candy" << endl;
 	expectedDisplay1 = "THANK YOU";
-	machine1.buyCola();
+	machine1.buyCandy();
 	actualDisplay1 = machine1.printDisplay();	
 	compareAssert(expectedDisplay1, actualDisplay1);
 
