@@ -1,9 +1,9 @@
 HEADERS			= VendingMachine.h
 SOURCES			= VendingMachine.cpp
 
-alltests: testAcceptCoin #testSelectProduct testMakeChange testReturnCoins testSoldOut testExactChange
+alltests: testAcceptCoin testSelectProduct #testMakeChange testReturnCoins testSoldOut testExactChange
 	./testAcceptCoin.out
-	#./testSelectProduct.out
+	./testSelectProduct.out
 	#./testMakeChange.out
 	#./testReturnCoins.out
 	#./testSoldOut.out
