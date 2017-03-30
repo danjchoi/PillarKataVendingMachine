@@ -54,6 +54,10 @@ void VendingMachine::updateDisplay()
 		display = "$";
 		display += to_string(dollars);
 		display += ".";
+		if(cents < 10)
+		{
+			display += '0';
+		}
 		display += to_string(cents); 
 	}
 	
