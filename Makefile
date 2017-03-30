@@ -1,9 +1,7 @@
 HEADERS			= VendingMachine.h
 SOURCES			= VendingMachine.cpp
 
-alltests: testAcceptCoin #testSelectProduct testMakeChange testReturnCoins testSoldOut testExactChange
-	./testAcceptCoin.out
-	#./testSelectProduct.out
+alltests: testAcceptCoin testSelectProduct #testMakeChange testReturnCoins testSoldOut testExactChange
 	#./testMakeChange.out
 	#./testReturnCoins.out
 	#./testSoldOut.out
@@ -11,9 +9,13 @@ alltests: testAcceptCoin #testSelectProduct testMakeChange testReturnCoins testS
 
 testAcceptCoin: $(SOURCES) $(HEADERS) testAcceptCoin.cpp
 	g++ -std=c++11 -pedantic -Wall -Werror testAcceptCoin.cpp $(SOURCES) -o testAcceptCoin.out
+	./testAcceptCoin.out
 
 testSelectProduct: $(SOURCES) $(HEADERS) testSelectProduct.cpp
+	git checkout selectProduct
 	g++ -std=c++11 -pedantic -Wall -Werror testSelectProduct.cpp $(SOURCES) -o testSelectProduct.out
+	./testSelectProduct.out
+	git checkout master
 
 testMakeChange: $(SOURCES) $(HEADERS) testMakeChange.cpp
 	g++ -std=c++11 -pedantic -Wall -Werror testMakeChange.cpp $(SOURCES) -o testMakeChange.out
@@ -31,6 +33,8 @@ help:
 	@echo -e "help: \n\tPrints this help message."
 	@echo -e "testAcceptCoin: \n\tTests the Accept Coin feature of the vending machine."
 	@echo -e "testSelectProduct: \n\tTests the Select Product feature of the vending machine."
+	@echo -e "\tMust be tested on its own branch (handled by make commands)."
+	@echo -e "\tMakeChange feature overwrites original intended behavior."
 	@echo -e "testMakeChange: \n\tTests the Make Change feature of the vending machine."
 	@echo -e "testReturnCoins: \n\tTests the Return Coins feature of the vending machine."
 	@echo -e "testSoldOut: \n\tTests the Sold Out feature of the vending machine."
