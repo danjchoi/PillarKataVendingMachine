@@ -1,5 +1,5 @@
-HEADERS			= vendingMachine.h
-SOURCES			= vendingMachine.cpp
+HEADERS			= VendingMachine.h
+SOURCES			= VendingMachine.cpp
 TESTSOURCES		= testAcceptCoin.cpp
 
 help: 
@@ -10,9 +10,8 @@ help:
 
 testAcceptCoin: $(HEADERS) $(SOURCES) $(TESTSOURCES)
 	g++ -std=c++11 -pedantic -Wall -Werror testAcceptCoin.cpp -o testAcceptCoin.out
-	./testAcceptCoin.out
 
 alltests: testAcceptCoin
-
+	./testAcceptCoin.out
 clean:
 	rm testAcceptCoin.out
