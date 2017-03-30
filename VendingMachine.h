@@ -11,5 +11,6 @@ private:
 	void updateDisplay();
 	int cents;
 	int dollars;
+	int returnBalance;
 	std::string display;
 };

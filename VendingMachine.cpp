@@ -2,7 +2,8 @@
 
 using namespace std;
 
-VendingMachine::VendingMachine(): cents(0), dollars(0), display("INSERT COIN") {}
+VendingMachine::VendingMachine(): 
+	cents(0), dollars(0), returnBalance(0), display("INSERT COIN"){}
 
 string VendingMachine::printDisplay()
 {
