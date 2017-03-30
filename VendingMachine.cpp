@@ -12,6 +12,29 @@ string VendingMachine::printDisplay()
 
 void VendingMachine::depositCoin(char coin)
 {
+	switch(coin){
+		case('N'):
+			cents += 5;
+			break;
+
+		case('D'):
+			cents += 10;
+			break;
+
+		case('Q'):
+			cents += 25;
+			break;
+		
+		case('P'):
+			//TODO: Add to coin return
+			break;
+		
+		default:
+			//This case shouldn't occur
+			break;
+	}
+	//
+	dollars = cents/100;
 	return;
 }
 
