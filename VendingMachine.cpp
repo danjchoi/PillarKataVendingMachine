@@ -76,15 +76,49 @@ void VendingMachine::updateDisplay()
 
 void VendingMachine::buyCola()
 {
-
+	if(dollars == 0)
+	{
+		display = "PRICE $1.00";
+	}
+	else
+	{
+		display = "THANK YOU";
+		--dollars;
+	}
 }
 
 void VendingMachine::buyChips()
 {
-	
+	if(cents < 50 && dollars == 0)
+	{
+		display = "PRICE $0.50";
+	}
+	else
+	{
+		display = "THANK YOU";
+		if(cents < 50)
+		{
+			--dollars;
+			cents += 100;
+		}
+		cents -= 50;
+	}
 }
 
 void VendingMachine::buyCandy()
 {
-	
+	if(cents < 65 && dollars == 0)
+	{
+		display = "PRICE $0.65";
+	}
+	else
+	{
+		display = "THANK YOU";
+		if(cents < 65)
+		{
+			--dollars;
+			cents += 100;
+		}
+		cents -= 65;
+	}
 }
