@@ -1,16 +1,40 @@
 HEADERS			= VendingMachine.h
 SOURCES			= VendingMachine.cpp
-TESTSOURCES		= testAcceptCoin.cpp
 
-alltests: testAcceptCoin
+alltests: testAcceptCoin #testSelectProduct testMakeChange testReturnCoins testSoldOut testExactChange
 	./testAcceptCoin.out
+	#./testSelectProduct.out
+	#./testMakeChange.out
+	#./testReturnCoins.out
+	#./testSoldOut.out
+	#./testExactChange.out
 
-testAcceptCoin: $(SOURCES) $(HEADERS) $(TESTSOURCES)
+testAcceptCoin: $(SOURCES) $(HEADERS) testAcceptCoin.cpp
 	g++ -std=c++11 -pedantic -Wall -Werror testAcceptCoin.cpp $(SOURCES) -o testAcceptCoin.out
+
+testSelectProduct: $(SOURCES) $(HEADERS) testSelectProduct.cpp
+	g++ -std=c++11 -pedantic -Wall -Werror testSelectProduct.cpp $(SOURCES) -o testSelectProduct.out
+
+testMakeChange: $(SOURCES) $(HEADERS) testMakeChange.cpp
+	g++ -std=c++11 -pedantic -Wall -Werror testMakeChange.cpp $(SOURCES) -o testMakeChange.out
+
+testReturnCoins: $(SOURCES) $(HEADERS) testReturnCoins.cpp
+	g++ -std=c++11 -pedantic -Wall -Werror testReturnCoins.cpp $(SOURCES) -o testReturnCoins.out
+
+testSoldOut: $(SOURCES) $(HEADERS) testSoldOut.cpp
+	g++ -std=c++11 -pedantic -Wall -Werror testSoldOut.cpp $(SOURCES) -o testSoldOut.out
+
+testExactChange: $(SOURCES) $(HEADERS) testExactChange.cpp
+	g++ -std=c++11 -pedantic -Wall -Werror testExactChange.cpp $(SOURCES) -o testExactChange.out
 
 help: 
 	@echo -e "help: \n\tPrints this help message."
-	@echo -e "testAcceptCoin: \n\tTests the acceptCoin feature of the vending machine. \n\tOutput is printed on the terminal."
+	@echo -e "testAcceptCoin: \n\tTests the Accept Coin feature of the vending machine."
+	@echo -e "testSelectProduct: \n\tTests the Select Product feature of the vending machine."
+	@echo -e "testMakeChange: \n\tTests the Make Change feature of the vending machine."
+	@echo -e "testReturnCoins: \n\tTests the Return Coins feature of the vending machine."
+	@echo -e "testSoldOut: \n\tTests the Sold Out feature of the vending machine."
+	@echo -e "testExactChange: \n\tTests the Exact Change feature of the vending machine"
 	@echo -e "alltests: \n\tCompiles and runs all tests."
 
 clean:
