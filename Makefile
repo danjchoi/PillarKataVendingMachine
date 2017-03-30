@@ -12,8 +12,10 @@ testAcceptCoin: $(SOURCES) $(HEADERS) testAcceptCoin.cpp
 	./testAcceptCoin.out
 
 testSelectProduct: $(SOURCES) $(HEADERS) testSelectProduct.cpp
+	git checkout selectProduct
 	g++ -std=c++11 -pedantic -Wall -Werror testSelectProduct.cpp $(SOURCES) -o testSelectProduct.out
 	./testSelectProduct.out
+	git checkout master
 
 testMakeChange: $(SOURCES) $(HEADERS) testMakeChange.cpp
 	g++ -std=c++11 -pedantic -Wall -Werror testMakeChange.cpp $(SOURCES) -o testMakeChange.out
