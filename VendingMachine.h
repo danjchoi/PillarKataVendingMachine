@@ -12,6 +12,7 @@ public:
 	void buyCandy();
 private:
 	void updateDisplay();
+	bool displayChangedByOtherMember;
 	int cents;
 	int dollars;
 	int returnBalance;

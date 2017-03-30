@@ -3,7 +3,7 @@
 using namespace std;
 
 VendingMachine::VendingMachine(): 
-	cents(0), dollars(0), returnBalance(0), display("INSERT COIN"){}
+	displayChangedByOtherMember(false), cents(0), dollars(0), returnBalance(0), display("INSERT COIN"){}
 
 string VendingMachine::printDisplay()
 {
@@ -35,7 +35,8 @@ void VendingMachine::depositCoin(char coin)
 			break;
 	}
 	//
-	dollars = cents/100;
+	dollars += cents/100;
+	cents = cents%100;
 	return;
 }
 
@@ -55,25 +56,6 @@ string VendingMachine::checkCoinReturn()
 	return returnBalanceString;
 }
 
-void VendingMachine::updateDisplay()
-{
-	if(dollars + cents == 0)
-	{
-		display = "INSERT COIN";
-	}
-	else
-	{
-		display = "$";
-		display += to_string(dollars);
-		display += ".";
-		if(cents < 10)
-		{
-			display += "0";
-		}
-		display += to_string(cents); 
-	}
-}
-
 void VendingMachine::buyCola()
 {
 	if(dollars == 0)
@@ -85,6 +67,7 @@ void VendingMachine::buyCola()
 		display = "THANK YOU";
 		--dollars;
 	}
+	displayChangedByOtherMember = true;
 }
 
 void VendingMachine::buyChips()
@@ -103,6 +86,7 @@ void VendingMachine::buyChips()
 		}
 		cents -= 50;
 	}
+	displayChangedByOtherMember = true;
 }
 
 void VendingMachine::buyCandy()
@@ -120,5 +104,30 @@ void VendingMachine::buyCandy()
 			cents += 100;
 		}
 		cents -= 65;
+	}
+	displayChangedByOtherMember = true;
+}
+
+void VendingMachine::updateDisplay()
+{
+	if(displayChangedByOtherMember)
+	{
+		displayChangedByOtherMember = false;
+		return;
+	}
+	if(dollars + cents == 0)
+	{
+		display = "INSERT COIN";
+	}
+	else
+	{
+		display = "$";
+		display += to_string(dollars);
+		display += ".";
+		if(cents < 10)
+		{
+			display += "0";
+		}
+		display += to_string(cents); 
 	}
 }

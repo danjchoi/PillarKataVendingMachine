@@ -2,8 +2,6 @@ HEADERS			= VendingMachine.h
 SOURCES			= VendingMachine.cpp
 
 alltests: testAcceptCoin testSelectProduct #testMakeChange testReturnCoins testSoldOut testExactChange
-	./testAcceptCoin.out
-	./testSelectProduct.out
 	#./testMakeChange.out
 	#./testReturnCoins.out
 	#./testSoldOut.out
@@ -11,9 +9,11 @@ alltests: testAcceptCoin testSelectProduct #testMakeChange testReturnCoins testS
 
 testAcceptCoin: $(SOURCES) $(HEADERS) testAcceptCoin.cpp
 	g++ -std=c++11 -pedantic -Wall -Werror testAcceptCoin.cpp $(SOURCES) -o testAcceptCoin.out
+	./testAcceptCoin.out
 
 testSelectProduct: $(SOURCES) $(HEADERS) testSelectProduct.cpp
 	g++ -std=c++11 -pedantic -Wall -Werror testSelectProduct.cpp $(SOURCES) -o testSelectProduct.out
+	./testSelectProduct.out
 
 testMakeChange: $(SOURCES) $(HEADERS) testMakeChange.cpp
 	g++ -std=c++11 -pedantic -Wall -Werror testMakeChange.cpp $(SOURCES) -o testMakeChange.out
