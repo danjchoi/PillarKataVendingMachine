@@ -9,8 +9,9 @@ using namespace std;
 void compareAssert(string expected, string actual)
 {
 	cout << "expected:\t" << expected << endl;
-	cout << "actual:\t" << actual << endl << endl;
+	cout << "actual:  \t" << actual << endl;
 	assert(expected == actual);
+	cout << "PASS!!!!!!!" << endl << endl;
 	return;
 }
 
