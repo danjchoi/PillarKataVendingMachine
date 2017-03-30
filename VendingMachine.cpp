@@ -2,11 +2,12 @@
 
 using namespace std;
 
-VendingMachine::VendingMachine(): cents(0), dollars(0) {}
+VendingMachine::VendingMachine(): cents(0), dollars(0), display("INSERT COIN") {}
 
 string VendingMachine::printDisplay()
 {
-	return "INSERT COIN";
+	updateDisplay();
+	return display;
 }
 
 void VendingMachine::depositCoin(char coin)
@@ -17,4 +18,20 @@ void VendingMachine::depositCoin(char coin)
 string VendingMachine::checkCoinReturn()
 {
 	return "";
+}
+
+void VendingMachine::updateDisplay()
+{
+	if(dollars + cents == 0)
+	{
+		display = "INSERT COIN";
+	}
+	else
+	{
+		display = "$";
+		display += to_string(dollars);
+		display += ".";
+		display += to_string(cents); 
+	}
+	
 }

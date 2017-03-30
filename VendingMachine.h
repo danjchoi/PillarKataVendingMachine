@@ -8,7 +8,8 @@ public:
 	void depositCoin(char coin);
 	std::string checkCoinReturn();
 private:
-	std::string makeBalance();
+	void updateDisplay();
 	int cents;
 	int dollars;
+	std::string display;
 };
