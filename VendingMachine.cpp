@@ -27,7 +27,7 @@ void VendingMachine::depositCoin(char coin)
 			break;
 		
 		case('P'):
-			//TODO: Add to coin return
+			returnBalance += 1;
 			break;
 		
 		default:
@@ -41,7 +41,18 @@ void VendingMachine::depositCoin(char coin)
 
 string VendingMachine::checkCoinReturn()
 {
-	return "";
+	//Alternative way to manage money.
+	string returnBalanceString = "$" + to_string(returnBalance/100) + ".";
+	if(returnBalance%100 < 10)
+	{
+		returnBalanceString += "0";
+	}
+	returnBalanceString += to_string(returnBalance%100);
+
+	//Checking the coin return also means taking the coins
+	returnBalance = 0;
+	
+	return returnBalanceString;
 }
 
 void VendingMachine::updateDisplay()
@@ -57,7 +68,7 @@ void VendingMachine::updateDisplay()
 		display += ".";
 		if(cents < 10)
 		{
-			display += '0';
+			display += "0";
 		}
 		display += to_string(cents); 
 	}
