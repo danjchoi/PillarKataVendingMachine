@@ -11,7 +11,7 @@ testAcceptCoin: $(SOURCES) $(HEADERS) testAcceptCoin.cpp
 	./testAcceptCoin.out
 
 testSelectProduct: $(SOURCES) $(HEADERS) testSelectProduct.cpp
-	git checkout selectProduct
+	git checkout remotes/origin/selectProduct
 	g++ -std=c++11 -pedantic -Wall -Werror testSelectProduct.cpp $(SOURCES) -o testSelectProduct.out
 	./testSelectProduct.out
 	git checkout makeChange
