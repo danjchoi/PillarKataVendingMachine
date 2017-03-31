@@ -14,7 +14,7 @@ testSelectProduct: $(SOURCES) $(HEADERS) testSelectProduct.cpp
 	git checkout remotes/origin/selectProduct
 	g++ -std=c++11 -pedantic -Wall -Werror testSelectProduct.cpp $(SOURCES) -o testSelectProduct.out
 	./testSelectProduct.out
-	git checkout makeChange
+	git checkout returnCoins
 
 testMakeChange: $(SOURCES) $(HEADERS) testMakeChange.cpp
 	g++ -std=c++11 -pedantic -Wall -Werror testMakeChange.cpp $(SOURCES) -o testMakeChange.out
