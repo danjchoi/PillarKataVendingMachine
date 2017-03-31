@@ -66,6 +66,7 @@ void VendingMachine::buyCola()
 	{
 		display = "THANK YOU";
 		--dollars;
+		makeChange();
 	}
 	displayChangedByOtherMember = true;
 }
@@ -85,6 +86,7 @@ void VendingMachine::buyChips()
 			cents += 100;
 		}
 		cents -= 50;
+		makeChange();
 	}
 	displayChangedByOtherMember = true;
 }
@@ -104,6 +106,7 @@ void VendingMachine::buyCandy()
 			cents += 100;
 		}
 		cents -= 65;
+		makeChange();
 	}
 	displayChangedByOtherMember = true;
 }
@@ -130,4 +133,11 @@ void VendingMachine::updateDisplay()
 		}
 		display += to_string(cents); 
 	}
+}
+
+void VendingMachine::makeChange()
+{
+	returnBalance = dollars*100 + cents;
+	dollars = 0;
+	cents = 0;
 }
