@@ -3,11 +3,17 @@
 using namespace std;
 
 VendingMachine::VendingMachine(): 
-	displayChangedByOtherMember(false), colaSoldout(false), chipsSoldout(false), candySoldout(false),
+	displayChangedByOtherMember(false), exactChange(false),
+	colaSoldout(false), chipsSoldout(false), candySoldout(false),
+	cents(0), dollars(0), returnBalance(0), display("INSERT COIN"){}
+
+VendingMachine::VendingMachine(bool exactChange_in): 
+	displayChangedByOtherMember(false), exactChange(exactChange_in),
+	colaSoldout(false), chipsSoldout(false), candySoldout(false),
 	cents(0), dollars(0), returnBalance(0), display("INSERT COIN"){}
 
 VendingMachine::VendingMachine(bool colaSoldout_in, bool chipsSoldout_in, bool candySoldout_in): 
-	displayChangedByOtherMember(false), 
+	displayChangedByOtherMember(false), exactChange(false),
 	colaSoldout(colaSoldout_in), chipsSoldout(chipsSoldout_in), candySoldout(candySoldout_in),
 	cents(0), dollars(0), returnBalance(0), display("INSERT COIN"){}
 
@@ -70,9 +76,14 @@ void VendingMachine::buyCola()
 		displayChangedByOtherMember = true;
 		return;
 	}
+	
 	if(dollars == 0)
 	{
 		display = "PRICE $1.00";
+	}
+	else if(exactChange && (dollars*100 + cents) != 100)
+	{
+		display = "EXACT CHANGE ONLY";
 	}
 	else
 	{
@@ -91,9 +102,14 @@ void VendingMachine::buyChips()
 		displayChangedByOtherMember = true;
 		return;
 	}
+
 	if(cents < 50 && dollars == 0)
 	{
 		display = "PRICE $0.50";
+	}
+	else if(exactChange && (dollars*100 + cents) != 50)
+	{
+		display = "EXACT CHANGE ONLY";
 	}
 	else
 	{
@@ -117,9 +133,14 @@ void VendingMachine::buyCandy()
 		displayChangedByOtherMember = true;
 		return;
 	}
+
 	if(cents < 65 && dollars == 0)
 	{
 		display = "PRICE $0.65";
+	}
+	else if(exactChange && (dollars*100 + cents) != 65)
+	{
+		display = "EXACT CHANGE ONLY";
 	}
 	else
 	{
