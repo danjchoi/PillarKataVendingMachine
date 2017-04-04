@@ -143,7 +143,7 @@ int main()
 	compareAssert(expectedDisplay1, actualDisplay1);
 
 	cout << "Checking display again" << endl;
-	expectedDisplay1 = "$0.25";
+	expectedDisplay1 = "INSERT COIN";
 	actualDisplay1 = machine1.printDisplay();
 	compareAssert(expectedDisplay1, actualDisplay1);
 }
