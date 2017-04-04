@@ -68,11 +68,8 @@ int main()
 	actualDisplay1 = machine1.printDisplay();
 	compareAssert(expectedDisplay1, actualDisplay1);
 
-	for(unsigned i = 0; i < 5; ++i)
-	{
-		cout << "Inserting $0.25" << endl;
-		machine1.depositCoin(quarter);
-	}
+	cout << "Inserting $0.25" << endl;
+	machine1.depositCoin(quarter);
 
 	cout << "Test4: More than enough money in machine. Trying to purchase sold out cola" << endl;
 	expectedDisplay1 = "SOLD OUT";
