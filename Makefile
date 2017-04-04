@@ -1,8 +1,7 @@
 HEADERS			= VendingMachine.h
 SOURCES			= VendingMachine.cpp
 
-alltests: testAcceptCoin testSelectProduct testMakeChange testReturnCoins testSoldOut #testExactChange
-	#./testExactChange.out
+alltests: testAcceptCoin testSelectProduct testMakeChange testReturnCoins testSoldOut testExactChange
 
 testAcceptCoin: $(SOURCES) $(HEADERS) testAcceptCoin.cpp
 	g++ -std=c++11 -pedantic -Wall -Werror testAcceptCoin.cpp $(SOURCES) -o testAcceptCoin.out
@@ -28,6 +27,7 @@ testSoldOut: $(SOURCES) $(HEADERS) testSoldOut.cpp
 
 testExactChange: $(SOURCES) $(HEADERS) testExactChange.cpp
 	g++ -std=c++11 -pedantic -Wall -Werror testExactChange.cpp $(SOURCES) -o testExactChange.out
+	./testExactChange.out
 
 help: 
 	@echo -e "help: \n\tPrints this help message."
