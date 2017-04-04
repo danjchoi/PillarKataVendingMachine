@@ -76,17 +76,14 @@ void VendingMachine::buyCola()
 		displayChangedByOtherMember = true;
 		return;
 	}
-
-	if(exactChange && dollars != 1 && cents == 0)
-	{
-		display = "EXACT CHANGE ONLY";
-		displayChangedByOtherMember = true;
-		return;
-	}
 	
 	if(dollars == 0)
 	{
 		display = "PRICE $1.00";
+	}
+	else if(exactChange && (dollars*100 + cents) != 100)
+	{
+		display = "EXACT CHANGE ONLY";
 	}
 	else
 	{
@@ -106,16 +103,13 @@ void VendingMachine::buyChips()
 		return;
 	}
 
-	if(exactChange && dollars == 0 && cents != 50)
-	{
-		display = "EXACT CHANGE ONLY";
-		displayChangedByOtherMember = true;
-		return;
-	}
-
 	if(cents < 50 && dollars == 0)
 	{
 		display = "PRICE $0.50";
+	}
+	else if(exactChange && (dollars*100 + cents) != 50)
+	{
+		display = "EXACT CHANGE ONLY";
 	}
 	else
 	{
@@ -140,16 +134,13 @@ void VendingMachine::buyCandy()
 		return;
 	}
 
-	if(exactChange && dollars == 0 && cents != 65)
-	{
-		display = "EXACT CHANGE ONLY";
-		displayChangedByOtherMember = true;
-		return;
-	}
-
 	if(cents < 65 && dollars == 0)
 	{
 		display = "PRICE $0.65";
+	}
+	else if(exactChange && (dollars*100 + cents) != 65)
+	{
+		display = "EXACT CHANGE ONLY";
 	}
 	else
 	{
