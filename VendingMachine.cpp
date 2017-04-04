@@ -3,11 +3,17 @@
 using namespace std;
 
 VendingMachine::VendingMachine(): 
-	displayChangedByOtherMember(false), colaSoldout(false), chipsSoldout(false), candySoldout(false),
+	displayChangedByOtherMember(false), exactChange(false),
+	colaSoldout(false), chipsSoldout(false), candySoldout(false),
+	cents(0), dollars(0), returnBalance(0), display("INSERT COIN"){}
+
+VendingMachine::VendingMachine(bool exactChange_in): 
+	displayChangedByOtherMember(false), exactChange(exactChange_in),
+	colaSoldout(false), chipsSoldout(false), candySoldout(false),
 	cents(0), dollars(0), returnBalance(0), display("INSERT COIN"){}
 
 VendingMachine::VendingMachine(bool colaSoldout_in, bool chipsSoldout_in, bool candySoldout_in): 
-	displayChangedByOtherMember(false), 
+	displayChangedByOtherMember(false), exactChange(false),
 	colaSoldout(colaSoldout_in), chipsSoldout(chipsSoldout_in), candySoldout(candySoldout_in),
 	cents(0), dollars(0), returnBalance(0), display("INSERT COIN"){}
 
