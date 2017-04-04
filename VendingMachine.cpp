@@ -137,7 +137,7 @@ void VendingMachine::updateDisplay()
 
 void VendingMachine::makeChange()
 {
-	returnBalance = dollars*100 + cents;
+	returnBalance += dollars*100 + cents;
 	dollars = 0;
 	cents = 0;
 }
