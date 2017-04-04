@@ -3,7 +3,13 @@
 using namespace std;
 
 VendingMachine::VendingMachine(): 
-	displayChangedByOtherMember(false), cents(0), dollars(0), returnBalance(0), display("INSERT COIN"){}
+	displayChangedByOtherMember(false), colaSoldout(false), chipsSoldout(false), candySoldout(false),
+	cents(0), dollars(0), returnBalance(0), display("INSERT COIN"){}
+
+VendingMachine::VendingMachine(bool colaSoldout_in, bool chipsSoldout_in, bool candySoldout_in): 
+	displayChangedByOtherMember(false), 
+	colaSoldout(colaSoldout_in), chipsSoldout(chipsSoldout_in), candySoldout(candySoldout_in),
+	cents(0), dollars(0), returnBalance(0), display("INSERT COIN"){}
 
 string VendingMachine::printDisplay()
 {
@@ -58,6 +64,12 @@ string VendingMachine::checkCoinReturn()
 
 void VendingMachine::buyCola()
 {
+	if(colaSoldout)
+	{
+		display = "SOLD OUT";
+		displayChangedByOtherMember = true;
+		return;
+	}
 	if(dollars == 0)
 	{
 		display = "PRICE $1.00";
@@ -73,6 +85,12 @@ void VendingMachine::buyCola()
 
 void VendingMachine::buyChips()
 {
+	if(chipsSoldout)
+	{
+		display = "SOLD OUT";
+		displayChangedByOtherMember = true;
+		return;
+	}
 	if(cents < 50 && dollars == 0)
 	{
 		display = "PRICE $0.50";
@@ -93,6 +111,12 @@ void VendingMachine::buyChips()
 
 void VendingMachine::buyCandy()
 {
+	if(candySoldout)
+	{
+		display = "SOLD OUT";
+		displayChangedByOtherMember = true;
+		return;
+	}
 	if(cents < 65 && dollars == 0)
 	{
 		display = "PRICE $0.65";
