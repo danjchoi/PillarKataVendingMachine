@@ -141,3 +141,9 @@ void VendingMachine::makeChange()
 	dollars = 0;
 	cents = 0;
 }
+
+string VendingMachine::returnCoins()
+{
+	makeChange();
+	return checkCoinReturn();
+}

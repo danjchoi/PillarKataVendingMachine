@@ -10,6 +10,7 @@ public:
 	void buyCola();
 	void buyChips();
 	void buyCandy();
+	std::string returnCoins();
 private:
 	void updateDisplay();
 	void makeChange();
